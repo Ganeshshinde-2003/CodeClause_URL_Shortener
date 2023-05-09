@@ -4,9 +4,9 @@ const axios = require("axios");
 const URL = require("./models/Urls");
 const morgan = require("morgan")
 const http = require("http")
-
+const path = require("path")
 require("dotenv").config();
-const { connectDB } = require("../server/config/db")
+const { connectDB } = require("./config/db")
 
 connectDB()
 
@@ -15,11 +15,11 @@ const PORT = process.env.PORT || 3000
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"))
+app.use(express.static('public'))
+
 
 app.get("/", (req, res) => {
-    res.json({
-        message: "Home Page",
-    });
+    res.sendFile(path.join(__dirname+'/public/index.html'));
 }); 
 
 app.get("/urls", async (req, res, next) => {
