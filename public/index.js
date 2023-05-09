@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/shorten"
+const API_URL = "https://url-shortener-node-yw4h.onrender.com"
 
 function copy(target) {
     // Element to selected
