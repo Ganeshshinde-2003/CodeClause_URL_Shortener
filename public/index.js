@@ -44,7 +44,7 @@ shortenForm.addEventListener("submit", async (e) => {
     //       Male request to API
 
     try {
-        let request = await fetch(API_URL, {
+        let request = await fetch(API_URL + "/api/shorten", {
             method: "POST",
             headers:{
                 "Content-Type":"application/json"
